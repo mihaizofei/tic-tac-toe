@@ -1,10 +1,15 @@
 import React from 'react';
+import { Button } from '@material-ui/core';
 
 function Square({ value, onClick }) {
   return (
-    <button className="square" onClick={onClick}>
+    <Button
+      className="square"
+      onClick={onClick}
+      variant="outlined"
+      style={{maxWidth: '80px', maxHeight: '80px', minWidth: '80px', minHeight: '80px'}}>
       {value}
-    </button>
+    </Button>
   );
 }
 export default Square;

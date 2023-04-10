@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Square from './Square';
+import { Button } from '@material-ui/core';
 
 
 function Board({ onWinner, onPlayerChange, xIsNext }) {
@@ -47,7 +48,7 @@ function Board({ onWinner, onPlayerChange, xIsNext }) {
         {renderSquare(7)}
         {renderSquare(8)}
       </div>
-      {calculateWinner(squares) && <button onClick={resetBoard}>Restart</button>}
+      {calculateWinner(squares) && <Button onClick={resetBoard} color="secondary">Restart</Button>}
     </div>
   );
 }
