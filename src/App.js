@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Board from './components/Board';
 
 function App() {
+
+  const [winner, setWinner] = useState(null);
+  const [xIsNext, setXIsNext] = useState(true);
+
+  const handleWinner = (winner) => {
+    setWinner(winner);
+  };
+
+  const handlePlayerChange = (xIsNext) => {
+    setXIsNext(xIsNext);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Tic Tac Toe</h1>
+      <Board onWinner={handleWinner} onPlayerChange={handlePlayerChange} xIsNext={xIsNext} />
+      {winner && <h2>{winner} wins!</h2>}
     </div>
   );
 }
