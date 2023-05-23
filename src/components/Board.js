@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Square from './Square';
 import { Button } from '@material-ui/core';
+import { Grid, Box } from '@mui/material';
 
 
 function Board({ onWinner, onPlayerChange, xIsNext }) {
@@ -31,26 +32,52 @@ function Board({ onWinner, onPlayerChange, xIsNext }) {
     const status = winner ? 'Winner: ' + winner : 'Next player: ' + (xIsNext ? 'X' : 'O');
 
     return (
-    <div>
-      <div className="status">{status}</div>
-      <div className="board-row">
-        {renderSquare(0)}
-        {renderSquare(1)}
-        {renderSquare(2)}
+      <div>
+        <div className="status">{status}</div>
+        <Grid container justifyContent="center">
+          <Grid item xs={12}>
+            <Grid container justifyContent="center">
+              <Grid item>
+                {renderSquare(0)}
+              </Grid>
+              <Grid item>
+                {renderSquare(1)}
+              </Grid>
+              <Grid item>
+                {renderSquare(2)}
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item xs={12}>
+            <Grid container justifyContent="center">
+              <Grid item>
+                {renderSquare(3)}
+              </Grid>
+              <Grid item>
+                {renderSquare(4)}
+              </Grid>
+              <Grid item>
+                {renderSquare(5)}
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item xs={12}>
+            <Grid container justifyContent="center">
+              <Grid item>
+                {renderSquare(6)}
+              </Grid>
+              <Grid item>
+                {renderSquare(7)}
+              </Grid>
+              <Grid item>
+                {renderSquare(8)}
+              </Grid>
+            </Grid>
+          </Grid>
+          {calculateWinner(squares) && <Button onClick={resetBoard} color="secondary">Restart</Button>}
+        </Grid>
       </div>
-      <div className="board-row">
-        {renderSquare(3)}
-        {renderSquare(4)}
-        {renderSquare(5)}
-      </div>
-      <div className="board-row">
-        {renderSquare(6)}
-        {renderSquare(7)}
-        {renderSquare(8)}
-      </div>
-      {calculateWinner(squares) && <Button onClick={resetBoard} color="secondary">Restart</Button>}
-    </div>
-  );
+    );
 }
 
 export default Board;
