@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Square from './Square';
 import { Button } from '@material-ui/core';
-import { Grid, Box } from '@mui/material';
+import { Grid } from '@mui/material';
 
 
 function Board({ onWinner, onPlayerChange, xIsNext }) {
