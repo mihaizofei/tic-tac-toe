@@ -21,6 +21,22 @@ function Board({ onWinner, onPlayerChange, xIsNext }) {
     const renderSquare = (i) => {
         return <Square value={squares[i]} onClick={() => handleClick(i)} />;
     };
+  
+  const renderGridItem = (i) => {
+    return <Grid item xs={12}>
+            <Grid container justifyContent="center">
+              <Grid item>
+                {renderSquare(i)}
+              </Grid>
+              <Grid item>
+                {renderSquare(i+1)}
+              </Grid>
+              <Grid item>
+                {renderSquare(i+2)}
+              </Grid>
+            </Grid>
+          </Grid>
+  }
 
     const resetBoard = () => {
         setSquares(Array(9).fill(null));
@@ -35,45 +51,9 @@ function Board({ onWinner, onPlayerChange, xIsNext }) {
       <div>
         <div className="status">{status}</div>
         <Grid container justifyContent="center">
-          <Grid item xs={12}>
-            <Grid container justifyContent="center">
-              <Grid item>
-                {renderSquare(0)}
-              </Grid>
-              <Grid item>
-                {renderSquare(1)}
-              </Grid>
-              <Grid item>
-                {renderSquare(2)}
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid item xs={12}>
-            <Grid container justifyContent="center">
-              <Grid item>
-                {renderSquare(3)}
-              </Grid>
-              <Grid item>
-                {renderSquare(4)}
-              </Grid>
-              <Grid item>
-                {renderSquare(5)}
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid item xs={12}>
-            <Grid container justifyContent="center">
-              <Grid item>
-                {renderSquare(6)}
-              </Grid>
-              <Grid item>
-                {renderSquare(7)}
-              </Grid>
-              <Grid item>
-                {renderSquare(8)}
-              </Grid>
-            </Grid>
-          </Grid>
+          {renderGridItem(0)}
+          {renderGridItem(3)}
+          {renderGridItem(6)}
           {calculateWinner(squares) && <Button onClick={resetBoard} color="secondary">Restart</Button>}
         </Grid>
       </div>
