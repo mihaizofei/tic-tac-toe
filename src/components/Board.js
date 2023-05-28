@@ -49,8 +49,8 @@ function Board({ onWinner, onPlayerChange, xIsNext }) {
 
     return (
       <div>
-        <div className="status">{status}</div>
         <Grid container justifyContent="center">
+          <div className="status">{status}</div>
           {renderGridItem(0)}
           {renderGridItem(3)}
           {renderGridItem(6)}

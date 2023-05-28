@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Board from './components/Board';
+import './app.css';
 
 function App() {
 
@@ -15,7 +16,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="app">
       <h1>Tic Tac Toe</h1>
       <Board onWinner={handleWinner} onPlayerChange={handlePlayerChange} xIsNext={xIsNext} />
       {winner && <h2>{winner} wins!</h2>}
