@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Square from './Square';
 import { Button } from '@material-ui/core';
 import { Grid } from '@mui/material';
+import './Board.css';
 
 
 function Board({ onWinner, onPlayerChange, xIsNext }) {
@@ -54,7 +55,7 @@ function Board({ onWinner, onPlayerChange, xIsNext }) {
           {renderGridItem(0)}
           {renderGridItem(3)}
           {renderGridItem(6)}
-          {calculateWinner(squares) && <Button onClick={resetBoard} color="secondary">Restart</Button>}
+          {calculateWinner(squares) && <Button className="restart-button" onClick={resetBoard} variant="text">Restart</Button>}
         </Grid>
       </div>
     );
